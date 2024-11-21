@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+Copied and modified from ROS1 example -
+https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/rrbot.gazebo
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <gazebo>
+    <!-- ros_control plugin -->
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find system_control)/config/system_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+
+ <!-- force_torque sensor plugin, doesn't work as expected.. it doesn't compute the joint torque applyed -->
+
+  <!-- <gazebo>
+    <plugin name="ft_sensor_jt" filename="libgazebo_ros_ft_sensor.so">
+      <ros>
+        <namespace>motor_joint</namespace>
+        <remapping>wrench:=/motor_joint_wrench</remapping>
+      </ros>
+      <joint_name>motor_joint</joint_name>
+      <body_name>base_link</body_name>
+      <frame_name>beam_link</frame_name>
+      <update_rate>50.0</update_rate>
+    </plugin>
+  </gazebo> -->
+
+</robot>

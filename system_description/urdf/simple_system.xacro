@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<robot name="simple_system" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- include ur5 macro -->
+  <xacro:include filename="$(find system_description)/urdf/simple_system_parts.urdf" />
+
+  <!-- include transmissions -->
+  <!-- <xacro:include filename="$(find system_description)/urdf/simple_system_transmission.urdf" /> -->
+
+  <!-- include simple system ros2_control description -->
+  <xacro:include filename="$(find system_description)/urdf/simple_system_ros2_control.urdf" />
+
+  <xacro:include filename="$(find system_description)/urdf/simple_system_gazebo.urdf" />
+
+</robot>
