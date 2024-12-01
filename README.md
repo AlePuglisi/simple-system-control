@@ -4,14 +4,13 @@ ROS 2 Humble | C++ | Gazebo Classic | ros2_control | effort_controllers | PID mo
 
 ### Description
 <img align="left" width="200" height="300" src="https://github.com/user-attachments/assets/27218d15-24fa-4380-8c5a-bda76b530df9"/>
-This repository provides ros2 packages for the control of a simple 2 links - 1 joint system. 
-The simple model is supposed to emulate a fixed motor moving a simple cylindrical load.<br/>
+This repository provides ros2 packages for the control of a simple 2 links - 1 joint system. <br/>
+The simple model is supposed to emulate a fixed motor moving a simple cylindrical load. <br/>
 Differently from any other ros2_control projects, here I implement a custom node for the control of joint position, based on a cascade controller. 
 
-This project was born because of some difficulties in implementing transmissions in ros2_control, for simulating motor's gearbox (still not working, any advice is welcome!). <br/>
+This project was born because of some difficulties in implementing transmissions in ros2_control, for simulating motor's gearbox (still not working, any advice is welcome!). <br/><br/>
 Anyway, I found this valuable for anyone experimenting with ROS 2, Gazebo, ros2_control, URDF, PID tuning and anti-wind up experiments (for now Back calculation algorithm).
 
-(...soon a better description of the control algorithm and tuning idea...)
 <br/>
 <br/>
 <br/>
@@ -30,7 +29,7 @@ Anyway, I found this valuable for anyone experimenting with ROS 2, Gazebo, ros2_
 For [newcomers in ROS 2](https://docs.ros.org/en/humble/Installation.html), after setting up ros 2 (desktop install) and creating the workspace as in the wiki, just clone this repo in your src: 
 
 ```
-git clone 
+git clone https://github.com/AlePuglisi/simple-system-control.git
 ```
 
 be sure to have installed:
@@ -75,8 +74,6 @@ python3 plot_result.py
 ```
 The names of the plotted signals are intuitively chosen to understand what is showing up. 
 
-![Note]
-I need to update the code to use a relative path, I'll do this quick fix soon!
 
 ### Conclusion:
 For any question, curiosity, or problem, don't hesitate to open an  issue or contact me. 
