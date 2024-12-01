@@ -17,8 +17,10 @@ SystemControl::SystemControl()
 
   torque_limit = 8.0; // Nm limit of motor joint  
   velocity_limit = 3.0; // rad/s limit of motor joint 
-  
-  file_out.open("/home/ale/ros2_ws/src/SIMPLE_SYSTEM_CONTROL/system_control/data_record.csv",std::ofstream::out | std::ofstream::trunc);
+
+  // may throw ament_index_cpp::PackageNotFoundError exception
+  std::string package_share_directory = ament_index_cpp::get_package_share_directory("system_control");
+  file_out.open(package_share_directory + "/script/data_record.csv",std::ofstream::out | std::ofstream::trunc);
   file_out << "time,reference_position,reference_position_filtered,current_position,position_error,reference_velocity,current_velocity,feed_forward_velocity,velocity_error,integral_action,proportional_action,control_torque,\n";
 
   // initialize reference joint state, only F2T as pi/2 initial desired position

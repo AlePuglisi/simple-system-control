@@ -1,9 +1,12 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
+import os
+from ament_index_python.packages import get_package_share_directory
+
+
 def plot_joint_states(file_path):
-    # Read the CSV file into a DataFrame
+    # Read the CSV file into a DataFrame, using pandas
     df = pd.read_csv(file_path)
     
     # Extract and normalize the 'time' column
@@ -23,7 +26,7 @@ def plot_joint_states(file_path):
     proportional = df['proportional_action'].tolist()
     control_torque = df['control_torque'].tolist()
     
-    
+    # initialize figure and make each subplot
     plt.figure('Joint State tracking')
 
     plt.subplot(2,4,1)
@@ -96,5 +99,8 @@ def plot_joint_states(file_path):
     plt.show()
 
 if __name__ == '__main__':
-    file_path = '/home/ale/ros2_ws/src/SIMPLE_SYSTEM_CONTROL/system_control/data_record.csv'  # Update this path if necessary
-    plot_joint_states(file_path)
+    file_name = "data_record.csv" # name of csv file storing data
+    pkg_dir = get_package_share_directory('system_control') 
+    file_path = os.path.join(pkg_dir, "script", file_name) #path to the file
+
+    plot_joint_states(file_path) # run the plotter function
