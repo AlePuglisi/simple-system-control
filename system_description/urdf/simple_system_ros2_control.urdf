@@ -8,16 +8,16 @@
 
       <joint name="motor_joint">
         <command_interface name="position">
-          <param name="min">-10</param>
-          <param name="max">10</param>
+          <param name="min">-${pi}</param>
+          <param name="max">${pi}</param>
         </command_interface>
         <command_interface name="velocity">
           <param name="min">-3</param>
           <param name="max">3</param>
         </command_interface>
         <command_interface name="effort">
-          <param name="min">-10</param>
-          <param name="max">10</param>
+          <param name="min">-8</param>
+          <param name="max">8</param>
         </command_interface>
         <state_interface name="position">  <!-- Set initial joint position -->
           <param name="initial_value"> 0.0 </param>
@@ -57,22 +57,6 @@
       </transmission> -->
 
 
-    </ros2_control>
-
-    <ros2_control name="motor_joint_actuator" type="actuator">
-
-      <joint name="motor_joint">
-        <command_interface name="effort">
-          <param name="min">-10</param>
-          <param name="max">10</param>
-        </command_interface>
-      </joint>
-      <transmission name="motor_joint_transmission">
-        <plugin>transmission_interface/SimpleTransmission</plugin>
-        <joint name="motor_joint" role="joint1">
-          <mechanical_reduction>250.0</mechanical_reduction>           <!-- Invalid value -->
-        </joint>
-      </transmission>
     </ros2_control>
 
 </robot>
