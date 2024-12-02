@@ -74,7 +74,7 @@ Soon I will update the README with additional information about the control sche
   ```
   The names of the plotted signals are intuitively chosen to understand what it is showing up. 
   > [!NOTE]  
-  > This Python script uses pandas and matplotlib, be sure to have those libraries installed. 
+  > This Python script uses **pandas** and **matplotlib**, be sure to have those libraries installed. 
 
 
 - ### CONCLUSIONS
@@ -82,6 +82,9 @@ Soon I will update the README with additional information about the control sche
 I believe that this code could be of help to anyone struggling with Laplace domain controller implementation. It is always hard to go from theory to practice. 
 Also, experimenting with anti-wind-up is very useful to understand the effect of actuator limitations, try to play with the anti-wind-up term, and the motor limits, to see what I'm talking about. 
 Changing gains, removing gravity compensation terms, or increasing load length or mass, show the power of this cascade control scheme. 
+
+Consider that, for now the controller has been tested mainly on a regulation problem (step reference) or for a simple ramp signal in Simulink. 
+It can be useful to analyze tracking performances instead of regulation ones, providing a time-varying trajectory on the joint position (like a sinusoidal reference). 
 
 As a final note, this controller could be implemented using a custom controller in ros2_control, to make it more real-time reliable and integrated with ros2_control itself. 
 It is not an easy task, but for sure an improvement. 
